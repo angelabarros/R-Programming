@@ -52,3 +52,24 @@ f(2)
 #   plot(x, y, type = type, ...)
 # }
 
+
+
+#functions inside functions
+make.power <- function (n){
+  pow <- function(x){
+    x^n
+  }
+  pow
+}
+#testing...
+cube <- make.power(3)
+class(cube) #function
+cube(3) #27
+
+square <- make.power(2)
+square(3) #9
+
+
+
+ls(environment(cube))
+get("n", environment(cube))
