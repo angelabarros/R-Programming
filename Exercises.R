@@ -26,3 +26,29 @@ column_mean <- function(y){
   }
   means
 }
+
+
+#argument matching
+mydata <- rnorm(100)
+sd(mydata)
+#equivalent
+sd(x = mydata)
+#equivalent
+sd(x = mydata, na.rm = FALSE)
+
+
+#Arguments to functions are evaluated lazily, so they are evaluated only as needed.
+f <- function(a, b){
+  a^2
+}
+#b isn't used inside the function, so it's going to work
+f(2)
+
+## THE "..." Argument
+#The ... argument indicates a variable number of arguments that are actually passed on to other functions.
+# - is often used when extending another function and you don't want to copy the entire argument list of the original function
+
+# myplot <- function(x, y, type = "1", ...){
+#   plot(x, y, type = type, ...)
+# }
+
